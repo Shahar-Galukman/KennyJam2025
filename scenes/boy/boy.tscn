@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://h6dqjwpj7n1s"]
+
+[ext_resource type="Texture2D" uid="uid://bbleu0pe6jjp8" path="res://scenes/boy/Poses/soldier_skid.png" id="1_oxyhe"]
+[ext_resource type="PackedScene" uid="uid://duvf8vu0oxtmr" path="res://scenes/Pisser/pisser.tscn" id="2_aror6"]
+
+[node name="Boy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oxyhe")
+
+[node name="Pisser" parent="." instance=ExtResource("2_aror6")]
+position = Vector2(8, 32)

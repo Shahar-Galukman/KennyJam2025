@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://duvf8vu0oxtmr"]
+
+[ext_resource type="Script" uid="uid://bc3vm585l3ph0" path="res://scenes/Pisser/pisser.gd" id="1_8sbao"]
+[ext_resource type="Texture2D" uid="uid://ccep3e7unjisr" path="res://scenes/Pisser/piss_drop.png" id="2_8sbao"]
+
+[node name="Pisser" type="Node2D"]
+script = ExtResource("1_8sbao")
+texture = ExtResource("2_8sbao")
