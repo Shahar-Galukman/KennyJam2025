@@ -6,10 +6,11 @@ extends Node2D
 @export var texture: Texture2D
 @export var origin_position: Vector2 = Vector2(0, 0)
 @export var stream_scroll_speed: float = 1.5
-@export var power_increase_per_click: float = 0.8
+@export var power_increase_per_click: float = 0.1
 @export var power_decay_per_sec: float = 200.0
 @export var power_rise_speed: float = 800.0
 @export var power_fall_speed: float = 300.0
+@export var drop_amount: float = 300.0
 @export var tank: Area2D
 
 var current_distance: float = 0.0
@@ -20,7 +21,7 @@ var stream_offset: float = 0.0  # 🔄 for animated motion
 const SEGMENT_COUNT := 20
 var segments := []
 
-var hit_radius := 16.0
+var hit_radius := 32.0
 var hit_circle := CircleShape2D.new()
 var query_params := PhysicsShapeQueryParameters2D.new()
 
@@ -29,9 +30,6 @@ func _ready():
 	var tanks = get_tree().get_nodes_in_group("tank")
 	if tanks.size() > 0:
 		tank = tanks[0]
-		print("Tank collision layer:", tank.collision_layer)
-		print("Tank collision mask:", tank.collision_mask)
-		print("Tank global position:", tank.global_position)
 	hit_circle.radius = hit_radius
 	query_params.shape = hit_circle
 	query_params.collision_mask = 1
@@ -85,7 +83,7 @@ func _update_segments():
 		var t = fmod(float(i) / float(SEGMENT_COUNT - 1) + stream_offset, 1.0)
 
 		var x = t * current_distance
-		var y = -arc_height * sin(t * PI)
+		var y = -arc_height * sin(t * PI) + t * drop_amount
 
 		var local_pos = Vector2(x, y)
 		var world_pos = origin_position + local_pos

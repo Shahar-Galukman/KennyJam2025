@@ -1,19 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://dedjup7xmwaio"]
+[gd_scene load_steps=8 format=4 uid="uid://dedjup7xmwaio"]
 
-[ext_resource type="Texture2D" uid="uid://cm6nsp2fed7ps" path="res://scenes/tank/shieldGold.png" id="1_gpcfw"]
 [ext_resource type="Script" uid="uid://c407h034744lj" path="res://scenes/tank/tank.gd" id="1_x633a"]
+[ext_resource type="Shader" uid="uid://bunc3ukdxy27v" path="res://scenes/tank/tank.gdshader" id="2_x633a"]
+[ext_resource type="TileSet" uid="uid://r6y36ly6daml" path="res://scenes/level/main_tileset.tres" id="3_0el1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x633a"]
-size = Vector2(64, 80)
+size = Vector2(144, 136)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0el1g"]
+shader = ExtResource("2_x633a")
+shader_parameter/fill_level = 0.0
+shader_parameter/time = 0.0
+
+[sub_resource type="Gradient" id="Gradient_x633a"]
+offsets = PackedFloat32Array(0, 0.538961, 1)
+colors = PackedColorArray(1, 0.960784, 0.4, 1, 1, 0.933333, 0.2, 1, 1, 0.988235, 0.764706, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0el1g"]
+gradient = SubResource("Gradient_x633a")
 
 [node name="Tank" type="Area2D" groups=["tank"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_x633a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("1_gpcfw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x633a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0el1g")
+position = Vector2(5.72205e-06, 4)
+scale = Vector2(2.25, 2.125)
+texture = SubResource("GradientTexture2D_0el1g")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAQAAAAIAAAD//wEAAQACAAEAAAAAAAEAAQACAAEAAAABAAEAAQAEAAIAAAD+/wAAAQACAAEAAAD+////AQACAAEAAAABAP//AQACAAEAAAABAAAAAQACAAEAAAA=")
+tile_set = ExtResource("3_0el1g")

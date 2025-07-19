@@ -5,4 +5,6 @@
 
 [node name="Pisser" type="Node2D"]
 script = ExtResource("1_8sbao")
+max_distance = 1500.0
+arc_height = 300.0
 texture = ExtResource("2_8sbao")
