@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj2vbbqkbr0jt"]
+[gd_scene load_steps=7 format=3 uid="uid://cj2vbbqkbr0jt"]
 
 [ext_resource type="Script" uid="uid://bs8sc3p5x5aik" path="res://scenes/psi_bar/psi_bar.gd" id="1_puknp"]
+[ext_resource type="AudioStream" uid="uid://lufhgr1r38j4" path="res://scenes/psi_bar/1_calm.mp3" id="2_fp007"]
+[ext_resource type="AudioStream" uid="uid://c4hff07tvigu2" path="res://scenes/psi_bar/2_ohhohh.mp3" id="3_ffc1o"]
+[ext_resource type="AudioStream" uid="uid://cgbbbdvgkecaj" path="res://scenes/psi_bar/4_ughhhhhhhh.mp3" id="4_ffc1o"]
+[ext_resource type="AudioStream" uid="uid://dqkv4o7uya82s" path="res://scenes/psi_bar/5_banshee.mp3" id="4_fp007"]
+[ext_resource type="AudioStream" uid="uid://b6rcuptqi1oja" path="res://scenes/psi_bar/4_ugh.mp3" id="5_p4rop"]
 
 [node name="PSIBar" type="Control"]
 layout_mode = 3
@@ -14,12 +19,58 @@ script = ExtResource("1_puknp")
 [node name="Bar" type="ColorRect" parent="."]
 layout_mode = 1
 offset_right = 1280.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 45.0
+offset_right = 192.0
+offset_bottom = 48.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "PSI"
+text = "Bladder PSI"
+
+[node name="Groan1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fp007")
+
+[node name="Groan2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ffc1o")
+
+[node name="Groan3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ffc1o")
+volume_db = 10.0
+
+[node name="Groan4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_p4rop")
+
+[node name="Groan5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fp007")
+
+[node name="BladderBlow" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 48.0
+offset_right = 218.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "BLADDER ABOUT TO BLOW!"
+horizontal_alignment = 1
+
+[node name="DeathCounter" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = 96.0
+offset_right = 25.0
+offset_bottom = 119.0
+grow_horizontal = 2
+text = "0"
+horizontal_alignment = 1

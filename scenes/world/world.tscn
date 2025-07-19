@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://tndujwia38am"]
+
+[ext_resource type="Script" uid="uid://c72ro1cal2wsg" path="res://scenes/world/camera_shake.gd" id="1_dphjl"]
+[ext_resource type="PackedScene" uid="uid://b5p86bjaibh13" path="res://scenes/level/level.tscn" id="2_sl2e5"]
+
+[node name="World" type="Node2D"]
+
+[node name="WorldCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+offset = Vector2(640, 360)
+position_smoothing_enabled = true
+script = ExtResource("1_dphjl")
+
+[node name="Level" parent="WorldCamera" instance=ExtResource("2_sl2e5")]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 656.0
+offset_right = 800.0
+offset_bottom = 701.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Fill The Tank!"

@@ -112,4 +112,5 @@ func _update_segments():
 
 	if is_hitting:
 		tank.fill(get_process_delta_time())
-				
+	
+	tank.call("on_stream_hit", is_hitting)

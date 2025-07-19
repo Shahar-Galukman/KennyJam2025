@@ -1,17 +1,16 @@
-[gd_scene load_steps=5 format=4 uid="uid://b5p86bjaibh13"]
+[gd_scene load_steps=7 format=4 uid="uid://b5p86bjaibh13"]
 
 [ext_resource type="PackedScene" uid="uid://h6dqjwpj7n1s" path="res://scenes/boy/boy.tscn" id="1_h3e3j"]
 [ext_resource type="TileSet" uid="uid://r6y36ly6daml" path="res://scenes/level/main_tileset.tres" id="2_i166f"]
 [ext_resource type="PackedScene" uid="uid://dedjup7xmwaio" path="res://scenes/tank/tank.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://cj2vbbqkbr0jt" path="res://scenes/psi_bar/psi_bar.tscn" id="4_qkmgm"]
+[ext_resource type="AudioStream" uid="uid://ctvfceeggdam2" path="res://scenes/level/soul-brother-positive-funk-266610.mp3" id="5_hnne4"]
+[ext_resource type="AudioStream" uid="uid://w6rng3nakdgw" path="res://scenes/level/zipper.mp3" id="6_vpf64"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Boy" parent="." instance=ExtResource("1_h3e3j")]
 position = Vector2(112, 312)
-
-[node name="Tank" parent="." instance=ExtResource("3_i166f")]
-position = Vector2(1160, 568)
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -23,9 +22,20 @@ rendering_quadrant_size = 7
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Background"]
 position = Vector2(248, 80)
-tile_map_data = PackedByteArray("AAD9/wQAAQAGAAMAAAD+/wQAAQAGAAMAAAAOAAgAAQAEAAIAAAANAAgAAQACAAIAAAAMAAgAAQABAAIAAAALAAgAAQABAAIAAAAKAAgAAQABAAIAAAAJAAgAAQABAAIAAAAIAAgAAQABAAIAAAAHAAgAAQABAAIAAAAGAAgAAQADAAIAAAAFAAgAAQABAAIAAAAEAAgAAQABAAIAAAADAAgAAQABAAIAAAACAAgAAQABAAIAAAABAAgAAQABAAIAAAAAAAgAAQABAAIAAAD//wgAAQABAAIAAAD+/wgAAQABAAIAAAD9/wgAAQABAAIAAAD8/wgAAQAAAAIAAAD8/wQAAQAEAAMAAAA=")
+tile_map_data = PackedByteArray("AAD9/wQAAQAGAAMAAAD+/wQAAQAGAAMAAAAOAAgAAQAEAAIAAAANAAgAAQACAAIAAAAMAAgAAQABAAIAAAALAAgAAQABAAIAAAAKAAgAAQABAAIAAAAJAAgAAQABAAIAAAAIAAgAAQABAAIAAAAHAAgAAQABAAIAAAAGAAgAAQADAAIAAAAFAAgAAQABAAIAAAAEAAgAAQABAAIAAAADAAgAAQABAAIAAAACAAgAAQABAAIAAAABAAgAAQABAAIAAAAAAAgAAQACAAIAAAD//wgAAQABAAIAAAD+/wgAAQABAAIAAAD9/wgAAQABAAIAAAD8/wgAAQAAAAIAAAD8/wQAAQAEAAMAAAA=")
 tile_set = ExtResource("2_i166f")
+
+[node name="Tank" parent="." instance=ExtResource("3_i166f")]
+position = Vector2(1160, 568)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PSIBar" parent="CanvasLayer" instance=ExtResource("4_qkmgm")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hnne4")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vpf64")
+autoplay = true

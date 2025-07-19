@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://djgbfjmbehcb"]
+
+[ext_resource type="Script" uid="uid://dlkd47w8ktjj" path="res://scenes/main_menu/game_over.gd" id="1_bxuor"]
+[ext_resource type="FontFile" uid="uid://cktktw7gpgq2m" path="res://graphics/Splash-Regular.ttf" id="1_qnybs"]
+[ext_resource type="Texture2D" uid="uid://bbm5rujq3xv4u" path="res://scenes/main_menu/pig_bg.jpg" id="2_n4uaq"]
+[ext_resource type="AudioStream" uid="uid://hiajlci3dv5f" path="res://scenes/main_menu/sad-piano-lost-love_30sec-198546.mp3" id="3_kr77h"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxuor")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.619608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n4uaq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qnybs")
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 88.0
+offset_right = 283.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Time to buy a fresh pig skin"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -160.0
+offset_right = 41.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kr77h")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
